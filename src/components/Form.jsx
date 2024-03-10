@@ -20,6 +20,7 @@ const Form = () => {
       const { data } = response;
       setWeather(data);
       setCity("");
+
       console.log(data);
     } catch (e) {
       console.log(e.message);

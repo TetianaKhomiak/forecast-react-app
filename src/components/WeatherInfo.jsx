@@ -1,7 +1,8 @@
 import React from "react";
 import { formatedWeatherDate } from "../utils";
+import { Icons } from "../utils";
 
-const WeatherInfo = ({ weather }) => {
+const WeatherInfo = ({ weather, icon }) => {
   const date = formatedWeatherDate(new Date());
 
   return (
@@ -18,8 +19,13 @@ const WeatherInfo = ({ weather }) => {
           <p>Humidity: {weather.list[0].main.humidity}%</p>
           <p>{weather.list[0].weather[0].description}</p>
           {weather.list[0].weather[0].icon && (
+            // <img
+            //   src={`https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather.list[0].weather[0].icon}.svg`}
+            //   alt={weather.list[0].weather[0].description}
+            // />
             <img
-              src={`https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather.list[0].weather[0].icon}.svg`}
+              className="weather__icon"
+              src={Icons(weather.list[0].weather[0].icon)}
               alt={weather.list[0].weather[0].description}
             />
           )}
