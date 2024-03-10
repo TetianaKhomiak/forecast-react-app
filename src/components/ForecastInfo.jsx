@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { formattedForecastDate, icons } from "../utils";
+import { formattedForecastDate, icons } from "../utils.jsx";
 
 const ForecastInfo = ({ data, error }) => {
   const [forecastDates, setForecastDates] = useState([]);

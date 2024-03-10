@@ -1,5 +1,9 @@
 import React from "react";
-import { capitalizeFirstLetter, formattedWeatherDate, icons } from "../utils";
+import {
+  capitalizeFirstLetter,
+  formattedWeatherDate,
+  icons,
+} from "../utils.jsx";
 
 const WeatherInfo = ({ data, error }) => {
   const date = formattedWeatherDate(new Date());

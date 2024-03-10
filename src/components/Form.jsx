@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { CityContext } from "../context/CityProvider";
-import WeatherInfo from "./WeatherInfo";
-import ForecastInfo from "./ForecastInfo";
+import { CityContext } from "../context/CityProvider.jsx";
+import ForecastInfo from "./ForecastInfo.jsx";
+import WeatherInfo from "./WeatherInfo.jsx";
 
 const Form = () => {
   const { city, setCity } = useContext(CityContext);
