@@ -18,8 +18,8 @@ const ForecastInfo = ({ data, error }) => {
         return {
           date: item.dt,
           icon: item.weather[0].icon,
-          tempMin: Math.round(minTemps[date]),
-          tempMax: Math.round(item.main.temp_max),
+          tempMin: minTemps[date],
+          tempMax: item.main.temp_max,
           descr: item.weather[0].description,
         };
       });
@@ -43,8 +43,8 @@ const ForecastInfo = ({ data, error }) => {
               />
             </p>
             <div className="forecast__temp">
-              <p>{date.tempMin}°C</p>
-              <p>{date.tempMax}°C</p>
+              <p>{parseInt(date.tempMin)}°C</p>
+              <p>{parseInt(date.tempMax)}°C</p>
             </div>
           </div>
         ))}

@@ -13,14 +13,14 @@ const WeatherInfo = ({ data, error }) => {
         data.list &&
         data.list.length > 0 && (
           <div className="weather-info__wrapper">
-            <div className="weather-info__data">
+            <div className="weather-info__data weather-info__data_center">
               <p className="weather-info__city">{data.city.name}</p>
               <p className="weather-info__text">{date}</p>
               <p className="weather-info__descr">
                 {capitalizeFirstLetter(data.list[0].weather[0].description)}
               </p>
             </div>
-            <div>
+            <div className="weather-info__icon">
               <img
                 className="weather-info__icon"
                 src={icons(data.list[0].weather[0].icon)}

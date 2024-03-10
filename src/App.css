@@ -148,3 +148,81 @@
 .forecast__icon {
     width: 100px;
 }
+
+@media (max-width:1200px) {
+    .weather__wrapper {
+        width: 70%;
+    }
+}
+
+@media (max-width:800px) {
+    .weather__wrapper {
+        width: 80%;
+    }
+}
+
+@media (max-width:696px) {
+
+    .weather-info__wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15%;
+    }
+
+    .weather-info__icon {
+        order: 1;
+    }
+
+    .forecast__wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .forecast__item {
+        width: 150px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width:581px) {
+    .weather__form {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .weather-info__wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15%;
+        width: 180px;
+        margin: auto;
+    }
+
+    .weather-info__icon {
+        order: 0;
+    }
+
+    .weather-info__data_center {
+        text-align: center;
+    }
+
+    .weather__input {
+        padding-left: 37%;
+    }
+
+    .forecast__wrapper {
+        gap: 40px;
+    }
+}
+
+@media (max-width:425px) {
+    .forecast__item {
+        width: 100px;
+        margin-top: 35px;
+    }
+
+    .weather__input {
+        width: 150px;
+    }
+
+}
