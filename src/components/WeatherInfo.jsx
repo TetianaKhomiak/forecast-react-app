@@ -16,7 +16,7 @@ const WeatherInfo = ({ data, error }) => {
             <div className="weather-info__data">
               <p className="weather-info__city">{data.city.name}</p>
               <p className="weather-info__text">{date}</p>
-              <p className="weather-info__text weather-info__text_teal">
+              <p className="weather-info__descr">
                 {capitalizeFirstLetter(data.list[0].weather[0].description)}
               </p>
             </div>
@@ -29,16 +29,22 @@ const WeatherInfo = ({ data, error }) => {
             </div>
             <div className="weather-info__data">
               <p className="weather-info__text">
-                <span className="weather-info__text_teal">Temperature:</span>
-                {Math.round(data.list[0].main.temp)} °C
+                <span className="weather-info__name">Temperature:</span>
+                <span className="weather-info__text_bold">
+                  {Math.round(data.list[0].main.temp)}°C
+                </span>
               </p>
               <p className="weather-info__text">
-                <span className="weather-info__text_teal">Wind:</span>
-                {Math.round(data.list[0].wind.speed)} km/h
+                <span className="weather-info__name"> Wind:</span>
+                <span className="weather-info__text_bold">
+                  {Math.round(data.list[0].wind.speed)} km/h
+                </span>
               </p>
               <p className="weather-info__text">
-                <span className="weather-info__text_teal">Humidity:</span>
-                {data.list[0].main.humidity}%
+                <span className="weather-info__name"> Humidity:</span>
+                <span className="weather-info__text_bold">
+                  {data.list[0].main.humidity}%
+                </span>
               </p>
             </div>
           </div>

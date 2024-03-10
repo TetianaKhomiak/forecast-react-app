@@ -41,6 +41,7 @@
 
 .weather__input::placeholder {
     font-size: 18px;
+    color: #0479a8;
 }
 
 .weather__button {
@@ -52,7 +53,7 @@
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
-    color: rgb(85, 83, 83);
+    color: #0479a8;
     font-size: 18px;
     transition: background-color 0.2s, border-color 0.2s;
 }
@@ -83,19 +84,31 @@
 .weather-info__city {
     font-size: 24px;
     font-weight: 500;
-    color: rgb(85, 83, 83);
+    color: #0479a8;
 }
 
 .weather-info__text {
     color: rgb(85, 83, 83);
     font-size: 18px;
+    color: #0479a8;
 }
 
-.weather-info__text_teal {
-    display: inline-block;
+.weather-info__text_bold {
     color: #0479a8;
-    width: 120px;
     font-weight: 500;
+}
+
+.weather-info__name {
+    width: 120px;
+    display: inline-block;
+}
+
+.weather-info__descr {
+    color: #0479a8;
+    font-weight: 500;
+    font-size: 18px;
+    width: 150px;
+    display: inline-block;
 }
 
 .weather-info__error {
@@ -105,9 +118,6 @@
     text-align: center;
 }
 
-.forecast__icon {
-    width: 100px;
-}
 
 .forecast__wrapper {
     display: flex;
@@ -115,7 +125,26 @@
     justify-content: space-between;
 }
 
+.forecast__item {
+    text-align: center;
+}
+
+.forecast__date {
+    font-family: "Roboto", sans-serif;
+    color: #0479a8;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
 .forecast__temp {
     display: flex;
     justify-content: space-between;
+    width: 90px;
+    margin: auto;
+    font-family: "Roboto", sans-serif;
+    color: #0479a8;
+}
+
+.forecast__icon {
+    width: 100px;
 }

@@ -53,7 +53,7 @@ const Form = () => {
         </button>
       </form>
       <WeatherInfo data={data} error={error} />
-      <ForecastInfo data={data} />
+      <ForecastInfo data={data} error={error} />
     </div>
   );
 };
