@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { CityContext } from "../context/CityProvider";
 import WeatherInfo from "./WeatherInfo";
+import ForecastInfo from "./ForecastInfo";
 
 const Form = () => {
   const { city, setCity } = useContext(CityContext);
-  const [weather, setWeather] = useState({});
+  const [data, setData] = useState({});
   const [error, setError] = useState(false);
 
   const handleSubmitForm = async (e) => {
@@ -21,11 +22,13 @@ const Form = () => {
       if (data.cod >= 400) {
         throw new Error("Failed to load resource");
       }
+
+      console.log(data);
       setError(false);
-      setWeather(data);
+      setData(data);
       setCity("");
     } catch (e) {
-      // console.log(e.message);
+      console.log(e.message);
       setError(true);
       setCity("");
     }
@@ -49,7 +52,8 @@ const Form = () => {
           search
         </button>
       </form>
-      <WeatherInfo weather={weather} error={error} />
+      <WeatherInfo data={data} error={error} />
+      <ForecastInfo data={data} />
     </div>
   );
 };

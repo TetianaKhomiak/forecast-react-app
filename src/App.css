@@ -104,3 +104,18 @@
     font-weight: 600;
     text-align: center;
 }
+
+.forecast__icon {
+    width: 100px;
+}
+
+.forecast__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.forecast__temp {
+    display: flex;
+    justify-content: space-between;
+}

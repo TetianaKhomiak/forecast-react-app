@@ -1,4 +1,4 @@
-export const formatedWeatherDate = (date) => {
+export const formattedWeatherDate = (date) => {
   const daysOfWeek = [
     "Sunday",
     "Monday",
@@ -15,6 +15,13 @@ export const formatedWeatherDate = (date) => {
   return `${day} ${hours < 10 ? "0" : ""}${hours}:${
     minutes < 10 ? "0" : ""
   }${minutes}`;
+};
+
+export const formattedForecastDate = (date) => {
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const day = daysOfWeek[new Date(date * 1000).getDay()];
+
+  return `${day}`;
 };
 
 export const icons = (icon) => {
