@@ -3,7 +3,7 @@
 > 
 >
 ## Features 📋
-⚡ API
+⚡ API                                                                                                                                                            
 ⚡️ Responsive                                                            
 ⚡️ HTML5 & CSS3                                                                                  
 ⚡️ React + Vite
