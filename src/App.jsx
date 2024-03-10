@@ -1,12 +1,10 @@
 import "./App.css";
-import Input from "./components/Input";
-import { useState } from "react";
+import Form from "./components/Form";
 
 function App() {
-  const [city, setCity] = useState("");
   return (
     <div>
-      <Input city={city} setCity={setCity} />
+      <Form />
     </div>
   );
 }
