@@ -2,7 +2,8 @@
 ## Page preview
 > https://forecast-react-app-six.vercel.app/
 
-[Video Title](https://github.com/TetianaKhomiak/forecast-react-app/blob/main/forecast-react.mp4)
+[![Watch the Video](https://img.youtube.com/vi/dJFMPzD2USU/0.jpg)](https://www.youtube.com/watch?v=dJFMPzD2USU)
+
 
 ## Features 📋
 ⚡ API                                                                                                                                                            
