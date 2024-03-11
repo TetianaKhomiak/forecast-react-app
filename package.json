@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://TetianaKhomiak.github.io/forecast-react-app/",
+  "homepage": "https://tetianakhomiak.github.io/forecast-react-app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
