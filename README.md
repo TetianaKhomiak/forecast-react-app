@@ -2,7 +2,8 @@
 ## Page preview
 > https://forecast-react-app-six.vercel.app/
 
-[![Watch the Video](https://img.youtube.com/vi/dJFMPzD2USU/maxresdefault.jpg)](https://www.youtube.com/watch?v=dJFMPzD2USU)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dJFMPzD2USU" frameborder="0" allowfullscreen></iframe>
+
 
 
 ## Features 📋
