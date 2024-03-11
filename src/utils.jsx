@@ -27,61 +27,61 @@ export const formattedForecastDate = (date) => {
 export const icons = (icon) => {
   switch (icon) {
     case "01d":
-      icon = "/icons/01d.svg";
+      icon = "public/images/01d.svg";
       break;
     case "01n":
-      icon = "icons/01n.svg";
+      icon = "public/images/01n.svg";
       break;
     case "02d":
-      icon = "/icons/02d.svg";
+      icon = "public/images/02d.svg";
       break;
     case "02n":
-      icon = "/icons/02n.svg";
+      icon = "public/images/02n.svg";
       break;
     case "03d":
-      icon = "/icons/03d.svg";
+      icon = "public/images/03d.svg";
       break;
     case "03n":
-      icon = "/icons/03n.svg";
+      icon = "public/images/03n.svg";
       break;
     case "04d":
-      icon = "/icons/04d.svg";
+      icon = "public/images/04d.svg";
       break;
     case "04n":
-      icon = "/icons/04n.svg";
+      icon = "public/images/04n.svg";
       break;
     case "09d":
-      icon = "/icons/09d.svg";
+      icon = "public/images/09d.svg";
       break;
     case "09n":
-      icon = "/icons/09n.svg";
+      icon = "public/images/09n.svg";
       break;
     case "10d":
-      icon = "/icons/10d.svg";
+      icon = "public/images/10d.svg";
       break;
     case "10n":
-      icon = "/icons/10n.svg";
+      icon = "public/images/10n.svg";
       break;
     case "11d":
-      icon = "/icons/11d.svg";
+      icon = "public/images/11d.svg";
       break;
     case "11n":
-      icon = "/icons/11n.svg";
+      icon = "public/images/11n.svg";
       break;
     case "13d":
-      icon = "/icons/13d.svg";
+      icon = "public/images/13d.svg";
       break;
     case "13n":
-      icon = "/icons/13n.svg";
+      icon = "public/images/13n.svg";
       break;
     case "50d":
-      icon = "/icons/50d.svg";
+      icon = "public/images/50d.svg";
       break;
     case "50n":
-      icon = "/icons/50n.svg";
+      icon = "public/images/50n.svg";
       break;
     default:
-      icon = "/icons/01d.svg";
+      icon = "public/images/01d.svg";
   }
   return icon;
 };
