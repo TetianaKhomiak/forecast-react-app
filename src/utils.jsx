@@ -36,19 +36,19 @@ export const background = (background) => {
       background = "/images/backgr-02d.jpg";
       break;
     case "02n":
-      background = "/images/backgr-02d.jpg";
+      background = "/images/backgr-02n.jpg";
       break;
     case "03d":
       background = "/images/backgr-02d.jpg";
       break;
     case "03n":
-      background = "/images/backgr-02d.jpg";
+      background = "/images/backgr-02n.jpg";
       break;
     case "04d":
       background = "/images/backgr-02d.jpg";
       break;
     case "04n":
-      background = "/images/backgr-02d.jpg";
+      background = "/images/backgr-02n.jpg";
       break;
     case "09d":
       background = "/images/backgr-10d.jpg";
