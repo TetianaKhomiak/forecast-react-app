@@ -3,10 +3,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { CityContext } from "../context/CityProvider.jsx";
 import ForecastInfo from "./ForecastInfo.jsx";
 import WeatherInfo from "./WeatherInfo.jsx";
+import { ResponseContext } from "../context/ResponseProvider.jsx";
 
 const Form = () => {
   const { city, setCity } = useContext(CityContext);
-  const [data, setData] = useState({});
+  const { data, setData } = useContext(ResponseContext);
+  // const [data, setData] = useState({});
   const [error, setError] = useState(false);
 
   const handleSubmitForm = async (e) => {
@@ -31,6 +33,10 @@ const Form = () => {
       console.log(e.message);
       setError(true);
       setCity("");
+      document.body.style.backgroundImage = 'url("/images/globe.jpg")';
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundAttachment = "fixed";
     }
   };
 

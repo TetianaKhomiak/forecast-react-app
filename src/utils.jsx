@@ -24,6 +24,68 @@ export const formattedForecastDate = (date) => {
   return `${day}`;
 };
 
+export const background = (background) => {
+  switch (background) {
+    case "01d":
+      background = "/images/backgr-01d.jpg";
+      break;
+    case "01n":
+      background = "/images/backgr-01n.jpg";
+      break;
+    case "02d":
+      background = "/images/backgr-02d.jpg";
+      break;
+    case "02n":
+      background = "/images/backgr-02d.jpg";
+      break;
+    case "03d":
+      background = "/images/backgr-02d.jpg";
+      break;
+    case "03n":
+      background = "/images/backgr-02d.jpg";
+      break;
+    case "04d":
+      background = "/images/backgr-02d.jpg";
+      break;
+    case "04n":
+      background = "/images/backgr-02d.jpg";
+      break;
+    case "09d":
+      background = "/images/backgr-10d.jpg";
+      break;
+    case "09n":
+      background = "/images/backgr-10d.jpg";
+      break;
+    case "10d":
+      background = "/images/backgr-10d.jpg";
+      break;
+    case "10n":
+      background = "/images/backgr-10d.jpg";
+      break;
+    case "11d":
+      background = "/images/backgr-11d.jpg";
+      break;
+    case "11n":
+      background = "/images/backgr-11d.jpg";
+      break;
+    case "13d":
+      background = "/images/backgr-13d.jpg";
+      break;
+    case "13n":
+      background = "/images/backgr-13n.jpg";
+      break;
+    case "50d":
+      background = "/images/backgr-50d.jpg";
+      break;
+    case "50n":
+      background = "/images/backgr-50d.jpg";
+      break;
+    default:
+      background = "/images/globe.jpg";
+  }
+  return background;
+};
+
 export const icons = (icon) => {
   switch (icon) {
     case "01d":
