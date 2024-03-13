@@ -11,7 +11,14 @@ const WeatherInfo = ({ data, error }) => {
   return (
     <div className="weather-info">
       {error ? (
-        <p className="weather-info__error">City not found</p>
+        <div>
+          <p className="weather-info__error">City not found</p>
+          <img
+            className="weather-info__error-icon"
+            src={"/images/globe.jpg"}
+            alt="globe"
+          />
+        </div>
       ) : (
         data &&
         data.list &&

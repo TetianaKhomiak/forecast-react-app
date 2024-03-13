@@ -33,10 +33,7 @@ const Form = () => {
       console.log(e.message);
       setError(true);
       setCity("");
-      document.body.style.backgroundImage = 'url("/images/globe.jpg")';
-      document.body.style.backgroundSize = "cover";
-      document.body.style.backgroundRepeat = "no-repeat";
-      document.body.style.backgroundAttachment = "fixed";
+      document.body.style.backgroundImage = "none";
     }
   };
 
