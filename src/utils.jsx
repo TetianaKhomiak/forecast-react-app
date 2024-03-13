@@ -8,13 +8,27 @@ export const formattedWeatherDate = (date) => {
     "Friday",
     "Saturday",
   ];
-  const day = daysOfWeek[date.getDay()];
 
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-  return `${day} ${hours < 10 ? "0" : ""}${hours}:${
-    minutes < 10 ? "0" : ""
-  }${minutes}`;
+  const day = daysOfWeek[date.getDay()];
+  const dayOfMonth = date.getDate();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const month = months[date.getMonth()];
+
+  return `${day} ${dayOfMonth < 10 ? "0" : ""}${dayOfMonth} ${month}`;
 };
 
 export const formattedForecastDate = (date) => {
