@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { formattedForecastDate, icons } from "../utils.jsx";
+import { IsCelsiusContext } from "../context/IsCelsiusProvider.jsx";
 
 const ForecastInfo = ({ data, error }) => {
   const [forecastDates, setForecastDates] = useState([]);
+  const { isCelsius } = useContext(IsCelsiusContext);
 
   useEffect(() => {
     if (data && data.list) {
@@ -29,6 +31,10 @@ const ForecastInfo = ({ data, error }) => {
     }
   }, [data]);
 
+  const convertToFahrenheit = (temp) => {
+    return Math.round((9 / 5) * temp + 32);
+  };
+
   return (
     <div className="forecast__wrapper">
       {!error &&
@@ -43,8 +49,17 @@ const ForecastInfo = ({ data, error }) => {
               />
             </p>
             <div className="forecast__temp">
-              <p>{parseInt(date.tempMin)}°C</p>
-              <p>{parseInt(date.tempMax)}°C</p>
+              {isCelsius ? (
+                <>
+                  <p>{parseInt(date.tempMin)}°C</p>
+                  <p>{parseInt(date.tempMax)}°C</p>
+                </>
+              ) : (
+                <>
+                  <p>{convertToFahrenheit(parseInt(date.tempMin))}°F</p>
+                  <p>{convertToFahrenheit(parseInt(date.tempMax))}°F</p>
+                </>
+              )}
             </div>
           </div>
         ))}

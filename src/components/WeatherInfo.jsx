@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { capitalizeFirstLetter, formatDate, icons } from "../utils.jsx";
 import { FiSunrise } from "react-icons/fi";
 import { FiSunset } from "react-icons/fi";
 import { formatUnixTimestamp } from "../utils.jsx";
+import { IsCelsiusContext } from "../context/IsCelsiusProvider.jsx";
 
 const WeatherInfo = ({ data, error }) => {
-  const [isCelsius, setIsCelsius] = useState(true);
+  const { isCelsius, setIsCelsius } = useContext(IsCelsiusContext);
   const [celsius, setCelsius] = useState("");
   const [fahrenheit, setFahrenheit] = useState("");
 
