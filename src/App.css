@@ -49,6 +49,12 @@
     display: flex;
 }
 
+.weather__button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
 .weather__search,
 .weather__loaction {
     color: #0479a8;

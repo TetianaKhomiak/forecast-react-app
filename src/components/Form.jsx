@@ -73,10 +73,10 @@ const Form = () => {
           onChange={(e) => setCity(e.target.value)}
         />
         <div className="weather__buttons">
-          <button type="submit">
+          <button type="submit" className="weather__button">
             <BiSearch className="weather__search" />
           </button>
-          <button type="submit">
+          <button type="submit" className="weather__button">
             <TbCurrentLocation className="weather__loaction" />
           </button>
         </div>
