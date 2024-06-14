@@ -80,7 +80,7 @@ export const background = (background) => {
       background = "/images/backgr-02d.jpg";
       break;
     case "03n":
-      background = "/images/backgr-02n2.png";
+      background = "/images/backgr-02n.jpg";
       break;
     case "04d":
       background = "/images/backgr-02d.jpg";
