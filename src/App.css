@@ -77,7 +77,7 @@
 }
 
 .weather-info__suntime {
-    width: 85%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     margin: 0 auto 20px;
@@ -204,7 +204,7 @@
     }
 
     .weather-info__suntime {
-        width: 100%;
+        width: 80%;
     }
 
     .weather-info__suntime_flex {
@@ -232,11 +232,21 @@
 }
 
 @media (max-width:696px) {
-
     .weather-info__wrapper {
         flex-wrap: wrap;
         justify-content: center;
         gap: 15%;
+    }
+
+    .weather-info__suntime {
+        gap: 25%;
+        margin-bottom: 35px;
+        width: 100%;
+    }
+
+    .weather-info__sunset,
+    .weather-info__sunrise {
+        font-size: 18px;
     }
 
     .weather-info__icon {
@@ -262,12 +272,33 @@
 
     .weather__sunrise,
     .weather__sunset {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .weather-info__suntime {
+        width: 135%;
+        margin-bottom: 25px;
+        margin-left: -45px;
+    }
+
+    .weather-info__sunset {
+        font-size: 18px;
+        justify-content: flex-end;
+    }
+
+    .weather-info__sunrise {
+        font-size: 18px;
+    }
+
+    .weather__search,
+    .weather__loaction {
+        font-size: 40px;
     }
 
     .weather__form {
         flex-wrap: wrap;
         justify-content: center;
+        padding-bottom: 0;
     }
 
     .weather-info__icon {
@@ -305,7 +336,18 @@
     }
 }
 
+@media (max-width:445px) {
+    .weather-info__suntime {
+        width: 145%;
+    }
+}
+
 @media (max-width:425px) {
+    .weather-info__suntime {
+        width: 165%;
+        margin-bottom: 25px;
+        margin-left: -55px;
+    }
 
     .error-icon__wrapper {
         width: 85%;
@@ -313,5 +355,11 @@
 
     .weather__input {
         width: 150px;
+    }
+}
+
+@media (max-width:389px) {
+    .weather-info__suntime {
+        margin-left: -30%;
     }
 }
