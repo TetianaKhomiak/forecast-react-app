@@ -49,17 +49,22 @@
     display: flex;
 }
 
-.weather__button {
+.weather__button,
+.btn__celsius,
+.btn__fahrenheit {
     border: none;
     outline: none;
     background: none;
+    cursor: pointer;
+    color: #0479a8;
+    font-size: 18px;
+    margin: 0 5px;
 }
 
 .weather__search,
 .weather__loaction {
     color: #0479a8;
     font-size: 3rem;
-    cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     padding: 8px;
     border-radius: 50%;
