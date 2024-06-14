@@ -4,11 +4,12 @@ import { CityContext } from "../context/CityProvider.jsx";
 import ForecastInfo from "./ForecastInfo.jsx";
 import WeatherInfo from "./WeatherInfo.jsx";
 import { ResponseContext } from "../context/ResponseProvider.jsx";
+import { BiSearch } from "react-icons/bi";
+import { TbCurrentLocation } from "react-icons/tb";
 
 const Form = () => {
   const { city, setCity } = useContext(CityContext);
   const { data, setData } = useContext(ResponseContext);
-  // const [data, setData] = useState({});
   const [error, setError] = useState(false);
 
   const handleSubmitForm = async (e) => {
@@ -16,9 +17,20 @@ const Form = () => {
       e.preventDefault();
     }
     try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=b1a7614cbc5071710a1d8075fbd15ec0&units=metric`
-      );
+      let apiUrl = `https://api.openweathermap.org/data/2.5/forecast`;
+      if (city) {
+        apiUrl += `?q=${city}&appid=b1a7614cbc5071710a1d8075fbd15ec0&units=metric`;
+      } else {
+        const position = await getCurrentPosition();
+        if (position) {
+          const { latitude, longitude } = position.coords;
+          apiUrl += `?lat=${latitude}&lon=${longitude}&appid=b1a7614cbc5071710a1d8075fbd15ec0&units=metric`;
+        } else {
+          throw new Error("Failed to get current location");
+        }
+      }
+
+      const response = await axios.get(apiUrl);
       const { data } = response;
 
       if (data.cod >= 400) {
@@ -37,6 +49,15 @@ const Form = () => {
     }
   };
 
+  const getCurrentPosition = () => {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => resolve(position),
+        (error) => reject(error)
+      );
+    });
+  };
+
   useEffect(() => {
     handleSubmitForm();
   }, []);
@@ -51,9 +72,14 @@ const Form = () => {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button className="weather__button" type="submit">
-          search
-        </button>
+        <div className="weather__buttons">
+          <button type="submit">
+            <BiSearch className="weather__search" />
+          </button>
+          <button type="submit">
+            <TbCurrentLocation className="weather__loaction" />
+          </button>
+        </div>
       </form>
       <WeatherInfo data={data} error={error} />
       <ForecastInfo data={data} error={error} />
@@ -62,3 +88,5 @@ const Form = () => {
 };
 
 export default Form;
+
+// //https://www.youtube.com/watch?v=SAE_TN2mD3Q

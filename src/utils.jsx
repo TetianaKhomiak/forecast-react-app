@@ -1,4 +1,8 @@
-export const formattedWeatherDate = (date) => {
+export const formatDate = (timezoneOffset) => {
+  const offsetMilliseconds = timezoneOffset * 1000;
+
+  const currentDate = new Date(Date.now() + offsetMilliseconds);
+
   const daysOfWeek = [
     "Sunday",
     "Monday",
@@ -8,11 +12,7 @@ export const formattedWeatherDate = (date) => {
     "Friday",
     "Saturday",
   ];
-
-  const day = daysOfWeek[date.getDay()];
-  const dayOfMonth = date.getDate();
-
-  const months = [
+  const monthsOfYear = [
     "January",
     "February",
     "March",
@@ -26,9 +26,22 @@ export const formattedWeatherDate = (date) => {
     "November",
     "December",
   ];
-  const month = months[date.getMonth()];
 
-  return `${day} ${dayOfMonth < 10 ? "0" : ""}${dayOfMonth} ${month}`;
+  const dayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+  const month = monthsOfYear[currentDate.getUTCMonth()];
+  const date = currentDate.getUTCDate();
+  const hours = currentDate.getUTCHours();
+  const minutes = currentDate.getUTCMinutes();
+  const period = hours >= 12 ? "PM" : "AM";
+
+  const hours12 = hours % 12 === 0 ? 12 : hours % 12;
+  const formattedTime = `${hours12}:${
+    minutes < 10 ? "0" + minutes : minutes
+  } ${period}`;
+
+  const formattedDate = `${dayOfWeek}, ${month} ${date}`;
+
+  return { formattedDate, formattedTime };
 };
 
 export const formattedForecastDate = (date) => {
@@ -36,6 +49,17 @@ export const formattedForecastDate = (date) => {
   const day = daysOfWeek[new Date(date * 1000).getDay()];
 
   return `${day}`;
+};
+
+export const formatUnixTimestamp = (unixTimestamp, timezoneOffset) => {
+  const date = new Date((unixTimestamp + timezoneOffset) * 1000);
+  let hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  const minutesStr = minutes < 10 ? "0" + minutes : minutes;
+  return hours + ":" + minutesStr + " " + ampm;
 };
 
 export const background = (background) => {
