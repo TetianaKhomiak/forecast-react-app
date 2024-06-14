@@ -9,7 +9,7 @@ const WeatherInfo = ({ data, error }) => {
     document.body.style.backgroundColor = "#EFF5FE";
   }
   if (!data || !data.city || !data.list || data.list.length === 0) {
-    return null; // Or you can render a loading state or error message
+    return null;
   }
 
   const { formattedDate, formattedTime } = formatDate(data.city.timezone);
@@ -33,11 +33,11 @@ const WeatherInfo = ({ data, error }) => {
         data.list.length > 0 && (
           <>
             <div className="weather-info__suntime">
-              <p className="weather-info__suntime weather-info__suntime_flex">
+              <p className="weather-info__sunrise">
                 <FiSunrise className="weather__sunrise" />
                 {formatUnixTimestamp(data.city.sunrise, data.city.timezone)}
               </p>
-              <p className="weather-info__suntime weather-info__suntime_flex">
+              <p className="weather-info__sunset">
                 <FiSunset className="weather__sunset" />
                 {formatUnixTimestamp(data.city.sunset, data.city.timezone)}
               </p>

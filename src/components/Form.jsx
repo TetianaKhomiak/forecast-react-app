@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { CityContext } from "../context/CityProvider.jsx";
-import ForecastInfo from "./ForecastInfo.jsx";
-import WeatherInfo from "./WeatherInfo.jsx";
-import { ResponseContext } from "../context/ResponseProvider.jsx";
 import { BiSearch } from "react-icons/bi";
 import { TbCurrentLocation } from "react-icons/tb";
+import { CityContext } from "../context/CityProvider.jsx";
+import { ResponseContext } from "../context/ResponseProvider.jsx";
+import ForecastInfo from "./ForecastInfo.jsx";
+import WeatherInfo from "./WeatherInfo.jsx";
 
 const Form = () => {
   const { city, setCity } = useContext(CityContext);
@@ -88,5 +88,3 @@ const Form = () => {
 };
 
 export default Form;
-
-// //https://www.youtube.com/watch?v=SAE_TN2mD3Q
