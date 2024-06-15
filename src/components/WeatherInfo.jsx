@@ -20,6 +20,7 @@ const WeatherInfo = ({ data, error }) => {
 
   if (error) {
     document.body.style.backgroundColor = "#EFF5FE";
+    document.body.style.backgroundSize = "cover";
   }
   if (!data || !data.city || !data.list || data.list.length === 0) {
     return null;
@@ -42,13 +43,6 @@ const WeatherInfo = ({ data, error }) => {
       {error ? (
         <div>
           <p className="weather-info__error">City not found</p>
-          <div className="error-icon__wrapper">
-            <img
-              className="weather-info__error-icon"
-              src={"/images/globe.jpg"}
-              alt="globe"
-            />
-          </div>
         </div>
       ) : (
         data &&

@@ -6,14 +6,17 @@
 }
 
 .weather__wrapper {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: rgba(245, 248, 247, 0.4);
     width: 50%;
     margin: 30px auto;
     padding: 30px;
-    border: solid 1px rgb(218, 232, 249);
+    border: solid 1px rgb(181, 201, 222);
     border-radius: 20px;
-    box-shadow: rgb(116, 157, 201) 0px 7px 29px 7px;
-    background-color: #FFFFFF;
+    box-shadow: rgb(99, 129, 161) 0px 7px 29px 7px;
 }
+
 
 .weather__form {
     width: 70%;
@@ -36,13 +39,14 @@
     box-shadow: rgb(218, 232, 249) 0px 3px 8px;
     padding: 20px 10px 20px 40px;
     font-family: "Roboto", sans-serif;
-    color: #0479a8;
+    color: #04566f;
     font-size: 18px;
+    background-color: #E7F1F5;
 }
 
 .weather__input::placeholder {
-    font-size: 18px;
-    color: #0479a8;
+    font-size: 20px;
+    color: #04566f;
 }
 
 .weather__buttons {
@@ -56,14 +60,23 @@
     outline: none;
     background: none;
     cursor: pointer;
-    color: #0479a8;
+    color: #04566f;
     font-size: 18px;
     margin: 0 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.btn__celsius:hover,
+.btn__fahrenheit:hover {
+    background-color: rgba(245, 248, 247, 0.4);
+    box-shadow: 0px 0px 10px 0px rgba(193, 210, 244, 0.7);
 }
 
 .weather__search,
 .weather__loaction {
-    color: #0479a8;
+    color: #04566f;
     font-size: 3rem;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     padding: 8px;
@@ -72,7 +85,7 @@
 
 .weather__search:hover,
 .weather__loaction:hover {
-    background-color: white;
+    background-color: rgba(245, 248, 247, 0.4);
     box-shadow: 0px 0px 10px 0px rgba(193, 210, 244, 0.7);
 }
 
@@ -90,12 +103,12 @@
 
 .weather__sunrise {
     font-size: 25px;
-    color: #FBBF24;
+    color: #cd9b1c;
 }
 
 .weather__sunset {
     font-size: 25px;
-    color: #0479a8;
+    color: #04566f;
 }
 
 .weather-info__sunrise,
@@ -103,7 +116,7 @@
     display: flex;
     justify-content: flex-start;
     width: 150px;
-    color: #0479a8;
+    color: #04566f;
     gap: 10px;
     font-size: 20px;
 }
@@ -123,28 +136,29 @@
 .weather-info__city {
     font-size: 24px;
     font-weight: 500;
-    color: #0479a8;
+    color: #04566f;
 }
 
 .weather-info__text {
     color: rgb(85, 83, 83);
     font-size: 18px;
-    color: #0479a8;
+    color: #04566f;
     display: flex;
 }
 
 .weather-info__text_bold {
-    color: #0479a8;
+    color: #04566f;
     font-weight: 500;
 }
 
 .weather-info__name {
     width: 120px;
     display: inline-block;
+    align-self: center;
 }
 
 .weather-info__descr {
-    color: #0479a8;
+    color: #04566f;
     font-weight: 500;
     font-size: 18px;
     width: 150px;
@@ -153,18 +167,9 @@
 
 .weather-info__error {
     font-size: 30px;
-    color: #0479a8;
+    color: #04566f;
     font-weight: 600;
     text-align: center;
-}
-
-.error-icon__wrapper {
-    width: 50%;
-    margin: 2% auto 0;
-}
-
-.weather-info__error-icon {
-    width: 100%;
 }
 
 .forecast__wrapper {
@@ -179,7 +184,7 @@
 
 .forecast__date {
     font-family: "Roboto", sans-serif;
-    color: #0479a8;
+    color: #04566f;
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -190,7 +195,8 @@
     width: 90px;
     margin: auto;
     font-family: "Roboto", sans-serif;
-    color: #0479a8;
+    color: #04566f;
+    font-weight: 500;
 }
 
 .forecast__icon {

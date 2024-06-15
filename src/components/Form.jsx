@@ -12,6 +12,12 @@ const Form = () => {
   const { data, setData } = useContext(ResponseContext);
   const [error, setError] = useState(false);
 
+  if (error) {
+    document.body.style.backgroundImage = "url(images/globe.jpg)";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundAttachment = "fixed";
+  }
   const handleSubmitForm = async (e) => {
     if (e) {
       e.preventDefault();
