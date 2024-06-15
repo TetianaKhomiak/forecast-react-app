@@ -71,7 +71,8 @@ export const background = (background) => {
       background = "/images/backgr-01n.jpg";
       break;
     case "02d":
-      background = "/images/backgr-02d.jpg";
+      //background = "/images/backgr-02d.jpg";
+      background = "/images/backgr-13n.jpg";
       break;
     case "02n":
       background = "/images/backgr-02n.jpg";
