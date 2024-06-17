@@ -1,121 +1,42 @@
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { TbCurrentLocation } from "react-icons/tb";
 import { CityContext } from "../context/CityProvider.jsx";
+import { ErrorContext } from "../context/ErrorProvider.jsx";
 import { ResponseContext } from "../context/ResponseProvider.jsx";
-import ForecastInfo from "./ForecastInfo.jsx";
-import WeatherInfo from "./WeatherInfo.jsx";
-import { background } from "../utils.jsx";
+import useFetchWeather from "./useFetchWeather.jsx";
 
 const Form = () => {
   const { city, setCity } = useContext(CityContext);
-  const { data, setData } = useContext(ResponseContext);
-  const [error, setError] = useState(false);
+  const { setData } = useContext(ResponseContext);
+  const { setError } = useContext(ErrorContext);
 
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast`;
+  const { fetchWeatherByCity, fetchWeatherByLocation } = useFetchWeather(
+    setData,
+    setError,
+    setCity
+  );
 
-  if (error) {
-    document.body.style.backgroundImage = "url(images/globe.jpg)";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundAttachment = "fixed";
-  } else if (
-    data &&
-    data.list &&
-    data.list[0] &&
-    data.list[0].weather[0].icon
-  ) {
-    const iconUrl = background(data.list[0].weather[0].icon);
-    document.body.style.backgroundImage = `url(${iconUrl})`;
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundAttachment = "fixed";
-  }
-
-  const handleSubmitForm = async (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-
-    try {
-      if (city) {
-        setError(false);
-        apiUrl += `?q=${city}&appid=b1a7614cbc5071710a1d8075fbd15ec0&units=metric`;
-      } else {
-        setError(true);
-        throw new Error("Failed to get current location");
-      }
-
-      const response = await axios.get(apiUrl);
-      const { data } = response;
-
-      if (data.cod >= 400) {
-        throw new Error("Failed to load resource");
-      }
-
-      console.log(data);
-      setError(false);
-      setData(data);
-      setCity("");
-    } catch (e) {
-      console.log("Error data", e.response.data);
-      setError(true);
-      setCity("");
-      document.body.style.backgroundImage = "none";
-    }
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    fetchWeatherByCity(city);
   };
 
-  const getCurrentPosition = () => {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => resolve(position),
-        (error) => reject(error)
-      );
-    });
-  };
-
-  const handleLocationSubmit = async (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-
-    try {
-      const position = await getCurrentPosition();
-      if (position) {
-        setError(false);
-        const { latitude, longitude } = position.coords;
-        apiUrl += `?lat=${latitude}&lon=${longitude}&appid=b1a7614cbc5071710a1d8075fbd15ec0&units=metric`;
-      }
-      const response = await axios.get(apiUrl);
-      const { data } = response;
-
-      if (data.cod >= 400) {
-        setError(true);
-        throw new Error("Failed to load resource");
-      }
-
-      console.log(data);
-      setError(false);
-      setData(data);
-      setCity("");
-    } catch (e) {
-      console.log(e.message);
-      setError(true);
-      setCity("");
-    }
+  const handleLocationSubmit = (e) => {
+    e.preventDefault();
+    fetchWeatherByLocation();
   };
 
   useEffect(() => {
-    handleSubmitForm();
+    fetchWeatherByCity(city);
   }, []);
 
   useEffect(() => {
-    handleLocationSubmit();
+    fetchWeatherByLocation();
   }, []);
 
   return (
-    <div className="weather__wrapper">
+    <div>
       <div className="weather__wrapper_flex">
         <form className="weather__form" onSubmit={handleSubmitForm}>
           <input
@@ -138,9 +59,6 @@ const Form = () => {
           </button>
         </div>
       </div>
-
-      <WeatherInfo data={data} error={error} />
-      <ForecastInfo data={data} error={error} />
     </div>
   );
 };

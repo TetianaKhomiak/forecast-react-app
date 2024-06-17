@@ -1,14 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
-import { capitalizeFirstLetter, formatDate, icons } from "../utils.jsx";
-import { FiSunrise } from "react-icons/fi";
-import { FiSunset } from "react-icons/fi";
-import { formatUnixTimestamp } from "../utils.jsx";
+import React, { useContext, useEffect, useState } from "react";
+import { FiSunrise, FiSunset } from "react-icons/fi";
+import { ErrorContext } from "../context/ErrorProvider.jsx";
 import { IsCelsiusContext } from "../context/IsCelsiusProvider.jsx";
+import { ResponseContext } from "../context/ResponseProvider.jsx";
+import {
+  capitalizeFirstLetter,
+  formatDate,
+  formatUnixTimestamp,
+  icons,
+} from "../utils.jsx";
 
-const WeatherInfo = ({ data, error }) => {
+const WeatherInfo = () => {
   const { isCelsius, setIsCelsius } = useContext(IsCelsiusContext);
   const [celsius, setCelsius] = useState("");
   const [fahrenheit, setFahrenheit] = useState("");
+  const { data } = useContext(ResponseContext);
+  const { error } = useContext(ErrorContext);
 
   useEffect(() => {
     if (data && data.list && data.list.length > 0) {

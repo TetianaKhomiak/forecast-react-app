@@ -1,10 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
-import { formattedForecastDate, icons } from "../utils.jsx";
+import React, { useContext, useEffect, useState } from "react";
+import { ErrorContext } from "../context/ErrorProvider.jsx";
 import { IsCelsiusContext } from "../context/IsCelsiusProvider.jsx";
+import { ResponseContext } from "../context/ResponseProvider.jsx";
+import { formattedForecastDate, icons } from "../utils.jsx";
 
-const ForecastInfo = ({ data, error }) => {
+const ForecastInfo = () => {
   const [forecastDates, setForecastDates] = useState([]);
   const { isCelsius } = useContext(IsCelsiusContext);
+  const { data } = useContext(ResponseContext);
+  const { error } = useContext(ErrorContext);
 
   useEffect(() => {
     if (data && data.list) {
