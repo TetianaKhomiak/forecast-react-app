@@ -6,6 +6,7 @@ import { CityContext } from "../context/CityProvider.jsx";
 import { ResponseContext } from "../context/ResponseProvider.jsx";
 import ForecastInfo from "./ForecastInfo.jsx";
 import WeatherInfo from "./WeatherInfo.jsx";
+import { background } from "../utils.jsx";
 
 const Form = () => {
   const { city, setCity } = useContext(CityContext);
@@ -16,6 +17,17 @@ const Form = () => {
 
   if (error) {
     document.body.style.backgroundImage = "url(images/globe.jpg)";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundAttachment = "fixed";
+  } else if (
+    data &&
+    data.list &&
+    data.list[0] &&
+    data.list[0].weather[0].icon
+  ) {
+    const iconUrl = background(data.list[0].weather[0].icon);
+    document.body.style.backgroundImage = `url(${iconUrl})`;
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundAttachment = "fixed";
@@ -71,6 +83,7 @@ const Form = () => {
     try {
       const position = await getCurrentPosition();
       if (position) {
+        setError(false);
         const { latitude, longitude } = position.coords;
         apiUrl += `?lat=${latitude}&lon=${longitude}&appid=b1a7614cbc5071710a1d8075fbd15ec0&units=metric`;
       }
@@ -78,6 +91,7 @@ const Form = () => {
       const { data } = response;
 
       if (data.cod >= 400) {
+        setError(true);
         throw new Error("Failed to load resource");
       }
 
@@ -89,7 +103,6 @@ const Form = () => {
       console.log(e.message);
       setError(true);
       setCity("");
-      document.body.style.backgroundImage = "none";
     }
   };
 
