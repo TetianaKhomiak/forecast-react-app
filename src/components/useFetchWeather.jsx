@@ -21,7 +21,6 @@ const useFetchWeather = (setData, setError, setCity) => {
       console.error(e.message);
       setError(true);
       setCity("");
-      document.body.style.backgroundImage = "none";
     }
   };
 
