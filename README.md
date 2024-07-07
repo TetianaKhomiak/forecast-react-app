@@ -2,8 +2,7 @@
 ## Page preview
 > https://forecast-react-app-six.vercel.app/
 
-
-## Features 📋
+## Tools 📋
 ⚡ API                                                                                                                                                            
 ⚡️ Responsive                                                            
 ⚡️ HTML5 & CSS3                                                                                  
