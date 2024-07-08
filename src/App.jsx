@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.css";
 import ForecastInfo from "./components/ForecastInfo.jsx";
 import Form from "./components/Form.jsx";
@@ -11,23 +11,30 @@ function App() {
   const { error } = useContext(ErrorContext);
   const { data } = useContext(ResponseContext);
 
-  if (error) {
-    document.body.style.backgroundImage = "url(images/globe.jpg)";
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundAttachment = "fixed";
-  } else if (
-    data &&
-    data.list &&
-    data.list[0] &&
-    data.list[0].weather[0].icon
-  ) {
-    const iconUrl = background(data.list[0].weather[0].icon);
-    document.body.style.backgroundImage = `url(${iconUrl})`;
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundAttachment = "fixed";
-  }
+  const loadBackgroundImage = (url) => {
+    const img = new Image();
+    img.src = url;
+    img.onload = () => {
+      document.body.style.backgroundImage = `url(${url})`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundAttachment = "fixed";
+    };
+  };
+
+  useEffect(() => {
+    if (error) {
+      loadBackgroundImage("images/globe.jpg");
+    } else if (
+      data &&
+      data.list &&
+      data.list[0] &&
+      data.list[0].weather[0].icon
+    ) {
+      const iconUrl = background(data.list[0].weather[0].icon);
+      loadBackgroundImage(iconUrl);
+    }
+  }, [data, error]);
 
   return (
     <div className="weather__wrapper">
