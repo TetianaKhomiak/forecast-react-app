@@ -6,4 +6,6 @@
 ⚡ API                                                                                                                                                            
 ⚡️ Responsive                                                            
 ⚡️ HTML5 & CSS3                                                                                  
-⚡️ React 
+⚡️ React
+⚡️ Redux Toolkit
+⚡️ Zod
